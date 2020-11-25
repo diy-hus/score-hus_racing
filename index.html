@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>HUS RACING 2020</title>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tinytimer.js"></script>
+</head>
+<body onload="motionjpeg('motionjpeg');motionjpeg('motionjpeg2');">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 pt-1 col-xl-12">
+				<div class="d-flex justify-content-between header">
+					<div class="logo-left">
+						<img class="img-fluid" src="img/hus_logo.png" />
+					</div>
+					<div class="logo-right d-flex">
+						<div class="logo-1 pr-5">
+							<img class="img-fluid" src="img/khoa-logo.png" />
+						</div>
+						<div class="logo-2">
+							<img class="img-fluid" src="img/khoa-vatli-logo.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 ml-1 col-xl-12">
+				<div class="d-flex flex-row-reverse bd-highlight">
+					<span style="color: #ffff00" class="span-padding"> 2020 </span>
+					<span style="color: #ff0000" class="span-padding"> RACING </span>
+					<span style="color: #ffff"> HUS </span>
+				</div>
+			</div>
+			<div class="col-12 col-xl-12">
+				<div class="d-flex justify-content-center pl-2">
+					<p class="text">From <b class="text-danger">HUS</b> we race the future</p>
+				</div>
+			</div>
+			<div class="col-12 col-xl-12">
+				<div class="d-flex justify-content-center">
+					<div class="border">
+						<span class="countdown" id="time">03:00</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-5 col-xl-5">
+				<div class="d-flex flex-nowrap align-items-center justify-content-center">
+					<h2 class="team-red">RED TEAM</h2>
+					<h2 class="time-red" id="time_red"></h2>
+				</div>
+				<!-- <div class="square-black"></div> -->
+				<img id="motionjpeg" class="motion" src="http://192.168.0.115:7777/" />  <!--111-Thuy; 115 - Cuong -->
+				<div class="row mt-2">		<!-- checkpoint -->
+					<h3 class="team-red col-3 col-xl-3">POINT</h3>
+					<div class="team-red col-9 col-xl-9">
+						<div class="d-flex justify-content-around"> 
+							<input type="text" class="form-control cp_red cp1 text-center" value="1" disabled="true">
+							<input type="text" class="form-control cp_red cp2 text-center" value="2" disabled="true">
+							<input type="text" class="form-control cp_red cp3 text-center" value="3" disabled="true">
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">	<!-- time -->
+					<h3 class="team-red col-3 col-xl-3">TIME</h3>
+					<div class="team-red col-9 col-xl-9">
+						<div class="d-flex justify-content-around"> 
+							<input type="text" id="time_redteam_cp1" class="form-control cp_red cp1 text-center" disabled="true">
+							<input type="text" id="time_redteam_cp2" class="form-control cp_red cp2 text-center" disabled="true">
+							<input type="text" id="time_redteam_cp3" class="form-control cp_red cp3 text-center" disabled="true">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-2 col-xl-2"></div>
+			<div class="col-5 col-xl-5">
+				<div class="d-flex align-items-center justify-content-center">
+					<h2 class="team-blue">BLUE TEAM</h2>
+					<h2 class="time-blue" id="time_blue"></h2>
+				</div>
+				<!-- <div class="square-black"></div> -->
+				<img id="motionjpeg2" class="motion" src="http://192.168.0.115:7777/" />
+				<div class="row mt-2">		<!-- checkpoint -->
+					<h3 class="team-blue col-3 col-xl-3">POINT</h3>
+					<div class="team-blue col-9 col-xl-9">
+						<div class="d-flex justify-content-around"> 
+							<input type="text" class="form-control cp_blue cp1 text-center" value="1" disabled="true">
+							<input type="text" class="form-control cp_blue cp2 text-center" value="2" disabled="true">
+							<input type="text" class="form-control cp_blue cp3 text-center" value="3" disabled="true">
+						</div>
+					</div>
+				</div>
+				<div class="row mt-2">	<!-- time -->
+					<h3 class="team-blue col-3 col-xl-3">TIME</h3>
+					<div class="team-blue col-9 col-xl-9">
+						<div class="d-flex justify-content-around"> 
+							<input type="text" id="time_blueteam_cp1" class="form-control cp_blue cp1 text-center" disabled="true">
+							<input type="text" id="time_blueteam_cp2" class="form-control cp_blue cp2 text-center" disabled="true">
+							<input type="text" id="time_blueteam_cp3" class="form-control cp_blue cp3 text-center" disabled="true">
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+		</div>
+		<audio id="countdown_mp3" src="img/audio/countdown.mp3"></audio>
+		<audio id="timeout_mp3" src="img/audio/timeout.mp3"></audio>
+	</div>
+	<div class="col-12 pb-4 col-xl-12" style="position: fixed; bottom: 0; left 0; width: 100%;">
+		<div class="d-flex flex-nowrap justify-content-between">
+			<div>
+				<select id="redteam" class="select_ip">
+					<option value="" selected>RED</option>
+					<option value="http://192.168.0.111:7777">HUS1</option>
+					<option value="http://192.168.0.112:7777">HUS2</option>
+					<option value="http://192.168.0.113:7777">HUS3</option>
+					<option value="http://192.168.0.114:7777">HUS4</option>
+					<option value="http://192.168.0.115:7777">HUS5</option>
+					<option value="http://192.168.0.116:7777">HUS6</option>
+					<option value="http://192.168.0.117:7777">HUS7</option>
+					<option value="http://192.168.0.118:7777">HUS8</option>
+				</select>
+			</div>
+			<div><img class="img" src="img/taitro/1.png" /></div>
+			<div><img class="img" src="img/taitro/2.png" /></div>
+			<div><img class="img" src="img/taitro/3.jpg" /></div>
+			<div><img class="img" src="img/taitro/4.png" /></div>
+			<div><img class="img" src="img/taitro/5.png" /></div>
+			<div><img class="img" src="img/taitro/6.png" /></div>
+			<div><img class="img" src="img/taitro/7.png" /></div>
+			<div><img class="img" src="img/taitro/8.png" /></div>
+			<div><img class="img" src="img/taitro/9.png" /></div>
+			<div><img class="img" src="img/taitro/10.png" /></div>
+			<div><img class="img" src="img/taitro/11.png" /></div>
+			<div><img class="img" src="img/taitro/12.png" /></div>
+			<div><img class="img" src="img/taitro/13.png" /></div>
+			<div><img class="img" src="img/taitro/14.png" /></div>
+			<div><img class="img" src="img/taitro/15.jpg" /></div>
+			<div><img class="img" src="img/taitro/16.png" /></div>
+			<div>
+				<select id="blueteam" class="select_ip">
+					<option value="" selected>BLUE</option>
+					<option value="http://192.168.0.111:7777">HUS1</option>
+					<option value="http://192.168.0.112:7777">HUS2</option>
+					<option value="http://192.168.0.113:7777">HUS3</option>
+					<option value="http://192.168.0.114:7777">HUS4</option>
+					<option value="http://192.168.0.115:7777">HUS5</option>
+					<option value="http://192.168.0.116:7777">HUS6</option>
+					<option value="http://192.168.0.117:7777">HUS7</option>
+					<option value="http://192.168.0.118:7777">HUS8</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var startTime = null;
+		var ctrl = 0;
+		var minutes = null;
+		var seconds = null;
+		var countdown = document.getElementById("countdown_mp3");
+		var timeout = document.getElementById("timeout_mp3");
+		var au = null;
+		var count_click = 0;
+		var time_out = 0;
+		var is_started = false;
+		
+		// set ip for redteam
+		$("#redteam").change(function() {
+			$('#motionjpeg').attr('src', $("#redteam").val());
+		})
+		
+		// set ip for blueteam
+		$("#blueteam").change(function() {
+			$('#motionjpeg2').attr('src', $("#blueteam").val());
+		})
+		
+		document.addEventListener('keydown', function(event) {
+			// console.log(event.keyCode + '\t' + count_click)
+			if (event.keyCode == 49 && is_started) { // bam phim so 1
+				var refacted_time_cp1 = refect_time($("#time").text());
+				$('#time_redteam_cp1').val(refacted_time_cp1);
+	    } else if (event.keyCode == 50 && is_started) { // bam phim so 2
+	    	if($('#time_redteam_cp1').val() != "") {  // neu cp1 co gia tri
+		    	var refacted_time_cp2 = refect_time($("#time").text());
+					$('#time_redteam_cp2').val(refacted_time_cp2);
+	    	}
+	    } else if (event.keyCode == 51 && is_started) { // bam phim so 3
+	    	if($('#time_redteam_cp1').val() != "" && $('#time_redteam_cp2').val() != "") { // neu cp1 va cp2 co gia tri
+		    	var refacted_time_cp3 = refect_time($("#time").text());
+				$('#time_redteam_cp3').val(refacted_time_cp3);
+				if ($('#time_blueteam_cp3').val() != '') {
+					is_started = false;
+					pause();
+					timeout.play();
+				}
+	    	}
+	    } else if (event.keyCode == 55 && is_started) { // bam phim so 7
+	    	var refacted_time_cp1 = refect_time($("#time").text());
+				$('#time_blueteam_cp1').val(refacted_time_cp1);
+	    } else if (event.keyCode == 56 && is_started) { // bam phim so 8
+	    	if($('#time_blueteam_cp1').val() != "") {  // neu cp1 co gia tri
+		    	var refacted_time_cp2 = refect_time($("#time").text());
+					$('#time_blueteam_cp2').val(refacted_time_cp2);
+	    	}
+	    } else if (event.keyCode == 57 && is_started) { // bam phim so 9
+	    	if($('#time_blueteam_cp1').val() != "" && $('#time_blueteam_cp2').val() != "") {  // neu cp1 va cp2 co gia tri
+		    	var refacted_time_cp3 = refect_time($("#time").text());
+				$('#time_blueteam_cp3').val(refacted_time_cp3);
+				if ($('#time_redteam_cp3').val() != '') {
+					is_started = false;
+					pause();
+					timeout.play();
+			    }
+	    	}
+			} else if (event.keyCode == 66 && count_click % 2 == 0) { // phim B
+				start();
+				is_started = true;
+				count_click++;
+			} else if (event.keyCode == 66 && count_click % 2 == 1) { // phim B
+				reset()
+				is_started = false;
+				count_click++;
+			}
+		}, true);
+		function startTimer() {
+			var t = $("#time").text();
+			var m = Number(t.substr(0, 2));
+			var s = Number(t.substr(3, 2));
+			if (s > 0) {
+				minutes = m;
+				seconds = s - 1;
+			}
+			if (s == 0 && m > 0) {
+				minutes = m - 1;
+				seconds = 59;
+			}
+			if (m == 0 && s == 11) {
+				stop_sound();
+				time_out = 10;
+				play_sound();
+			}
+			if (s == 0 && m == 0) {
+				minutes = 0;
+				seconds = 0;
+				clearTimeout(startTime);
+				clearInterval(au);
+				countdown.pause();
+				timeout.play();
+				$("#start").prop("disabled", false);
+				return false;
+			}
+
+			if (seconds < 10) {
+				var tt = "0" + minutes + ":" + "0" + seconds;
+			}
+			if (seconds > 9) {
+				var tt = "0" + minutes + ":" + seconds;
+			}
+			// console.log(tt);
+			$("#time").text(tt);
+			startTime = setTimeout(function () {
+				startTimer();
+			}, 1000);
+		}
+		function start() {
+        // threeMinutes = 60 * 3;
+        $("#time").text("03:00");
+        $("#start").prop("disabled", true);
+        time_out = 4;
+        play_sound();
+        startTimer();
+      }
+
+      function pause() { // dung thoi gian lai
+      	clearTimeout(startTime);
+      	stop_sound();
+        // if (ctrl == 0) {
+        //   clearTimeout(startTime);
+        //   stop_sound();
+        //   return (ctrl = 1);
+        // }
+        // if (ctrl == 1) {
+        //   console.log("a");
+        //   var t = $("#time").text();
+        //   var m = Number(t.substr(0, 2));
+        //   var s = Number(t.substr(3, 2));
+        //   // display = document.querySelector("#time");
+        //   var time = m * 60 + s;
+        //   play_sound()
+        //   startTimer();
+        //   return (ctrl = 0);
+        // }
+      }
+
+      function reset() {
+      	clearTimeout(startTime);
+      	stop_sound();
+      	$("#time").text("00:00");
+      	$("#start").prop("disabled", false);
+      	$('#time_redteam_cp1').val('')
+      	$('#time_redteam_cp2').val('')
+      	$('#time_redteam_cp3').val('')
+      	$('#time_blueteam_cp1').val('')
+      	$('#time_blueteam_cp2').val('')
+      	$('#time_blueteam_cp3').val('')
+      	return(ctrl = 0);
+      }
+
+      function play_sound() {
+      	countdown_mp3.play();
+      	au = setInterval(function () {
+      		if (time_out != 0) {
+      			countdown.play();
+      			time_out--;
+      		} else {
+      			countdown.pause();
+      		}
+      	}, 1000);
+      }
+
+      function stop_sound() {
+      	clearInterval(au);
+      	countdown.pause();
+      }
+
+      function motionjpeg(id) {
+      	var image = document.getElementById(id), src;
+
+      	if (!image.length) return;
+
+      	src = image.src
+      	if (src.indexOf("?") < 0) {
+            image.src = src + "?"; // must have querystring
+          }
+
+          image.on("load", function() {
+          	this.src = this.src.replace(/\?[^\n]*$/, "?") +
+                (new Date()).getTime(); // 'this' refers to the image
+              });
+        }
+
+        function refect_time(time) { 
+        	var a = time.split(':'); // split it at the colons
+					var seconds = 180 - ((+a[0]) * 60 + (+a[1]));
+					var refact_seconds = "0" + Math.floor(seconds/60).toString() + ":" + ((seconds % 60 < 10) ? ("0" + (seconds % 60).toString()) : (seconds % 60).toString());
+					return refact_seconds;
+        }
+		
+		
+      </script>
+    </body>
+    </html>
